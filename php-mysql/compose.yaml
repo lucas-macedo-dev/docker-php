@@ -1,0 +1,43 @@
+services:
+ nginx:
+  build:
+      context: .
+      dockerfile: nginx/Dockerfile
+  container_name: nginx
+  restart: always
+  ports:
+   - "80:80"
+  networks:
+    - internal
+  volumes:
+    - ./www:/www
+    - ./logs/nginx:/var/log/nginx/
+    - ./nginx/default.conf.template:/etc/nginx/templates/default.conf.template
+  depends_on:
+  - php
+ php:
+  build:
+       context: .
+       dockerfile: php/Dockerfile
+  container_name: php-fpm
+  networks:
+    - internal
+  volumes:      
+    - ./:/var/www/html/
+    - ./logs/php.log:/var/log/fpm-php.www.log
+  links:
+  - db:mysql
+ db:
+  image: mysql:latest
+  container_name: mysql
+  networks:
+    - internal
+  ports:
+  - "3306:3306"
+  restart: always
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: teste
+networks:
+  internal:
+    driver: bridge
