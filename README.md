@@ -5,6 +5,7 @@ Este repositório é um template para iniciar rapidamente o desenvolvimento de p
 - PHP 8.2-FPM: Use a imagem oficial do PHP para o servidor PHP com FPM (FastCGI Process Manager).
 - MySQL 5.7: Banco de dados MySQL para armazenar os dados do seu aplicativo.
 - Docker Compose: Gerencie facilmente os serviços do aplicativo usando o Docker Compose.
+
 ## Estrutura do Projeto
 ```
 /
