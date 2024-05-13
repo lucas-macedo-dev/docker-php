@@ -24,7 +24,7 @@ Este repositório é um template para iniciar rapidamente o desenvolvimento de p
 - Dockerfile: Arquivo Dockerfile para construir a imagem do contêiner PHP.
 - www/: Diretório para armazenar o código-fonte do aplicativo PHP.
 - db/: Diretório para armazenar os arquivos de inicialização e configuração do MySQL.
-##Como Usar
+## Como Usar
 Clone este repositório em sua máquina local:
 ```
 git clone https://github.com/lucas-macedo-dev/docker-php.git
