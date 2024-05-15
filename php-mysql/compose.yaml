@@ -6,15 +6,17 @@ services:
   container_name: nginx
   restart: always
   ports:
-   - "80:80"
+   - "8080:8080"
   networks:
     - internal
   volumes:
-    - ./www:/www
+    - ./:/var/www/html/
     - ./logs/nginx:/var/log/nginx/
     - ./nginx/default.conf.template:/etc/nginx/templates/default.conf.template
   depends_on:
   - php
+  environment:
+    NGINX_PORT_HTTP: 8080
  php:
   build:
        context: .

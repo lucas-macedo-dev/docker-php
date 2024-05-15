@@ -1,6 +1,6 @@
 server {
-    listen      80;
-    listen      [::]:80;
+    listen      $NGINX_PORT_HTTP;
+    listen      [::]:$NGINX_PORT_HTTP;
 
     root        /var/www/html/public;
 
@@ -18,7 +18,7 @@ server {
 
     # handle .php
     location ~ \.php$ {
-        fastcgi_pass                  $FASTCGI_PASS;
+        fastcgi_pass                  php:9000;
         resolver                      127.0.0.1;
 
         # default fastcgi_params
